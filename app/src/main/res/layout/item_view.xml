@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="14dp"
+    android:background="@drawable/item"
+    >
+    <TextView
+        android:id="@+id/initial"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="start"
+        android:text="RELAX!! Nothing is in control"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+
+        />
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="- Buddha"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+
+        />
+
+</LinearLayout>
