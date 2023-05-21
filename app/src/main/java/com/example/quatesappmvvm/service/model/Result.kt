@@ -1,6 +1,13 @@
 package com.example.quatesappmvvm.service.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+
+@Entity(tableName = "quote")
 data class Result(
+    @PrimaryKey(autoGenerate = true)
+    val quoteId:Int,
     val _id: String,
     val author: String,
     val authorSlug: String,
@@ -8,5 +15,5 @@ data class Result(
     val dateAdded: String,
     val dateModified: String,
     val length: Int,
-    val tags: List<String>
+
 )

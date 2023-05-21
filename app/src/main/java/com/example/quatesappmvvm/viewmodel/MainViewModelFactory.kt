@@ -2,6 +2,7 @@ package com.example.quatesappmvvm.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.quatesappmvvm.service.db.QuoteDatabase
 import com.example.quatesappmvvm.service.repository.QuoteRepo
 
 class MainViewModelFactory(private val quoteRepository: QuoteRepo) : ViewModelProvider.Factory{

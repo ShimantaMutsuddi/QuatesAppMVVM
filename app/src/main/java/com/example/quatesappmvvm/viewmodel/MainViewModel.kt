@@ -3,6 +3,8 @@ package com.example.quatesappmvvm.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.quatesappmvvm.service.db.QuoteDao
+import com.example.quatesappmvvm.service.db.QuoteDatabase
 import com.example.quatesappmvvm.service.model.QuoteList
 import com.example.quatesappmvvm.service.repository.QuoteRepo
 import kotlinx.coroutines.Dispatchers

@@ -48,6 +48,7 @@ dependencies {
 
     def room_version = "2.5.1"
     def lifecycle_version = "2.6.1"
+    def work_version = "2.8.1"
 
     implementation("androidx.room:room-runtime:$room_version")
     // To use Kotlin annotation processing tool (kapt)
@@ -66,4 +67,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
+    // work manager Kotlin + coroutines
+    implementation("androidx.work:work-runtime-ktx:$work_version")
 }
