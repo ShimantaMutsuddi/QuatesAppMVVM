@@ -5,11 +5,13 @@
     android:layout_height="wrap_content"
     android:padding="14dp"
     android:background="@drawable/item"
+    android:elevation="5dp"
+    android:layout_marginBottom="5dp"
     >
     <TextView
-        android:id="@+id/initial"
+        android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="75dp"
         android:gravity="start"
         android:text="RELAX!! Nothing is in control"
         android:textColor="@color/black"
@@ -17,14 +19,14 @@
 
         />
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/initial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
         android:text="- Buddha"
         android:paddingStart="16dp"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:textSize="20dp"
 
         />
 
