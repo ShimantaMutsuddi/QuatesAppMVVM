@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quatesappmvvm.R
 
 import com.example.quatesappmvvm.service.repository.QuoteRepo
+import com.example.quatesappmvvm.service.repository.Response
 import com.example.quatesappmvvm.viewmodel.MainViewModel
 import com.example.quatesappmvvm.viewmodel.MainViewModelFactory
 
@@ -39,8 +40,18 @@ class MainActivity : AppCompatActivity() {
 
        mainViewModel.quotes.observe(this){
 
-           Toast.makeText(this@MainActivity,it.results.size.toString(),Toast.LENGTH_SHORT).show()
-           adapter.submitList(it.results)
+           //Toast.makeText(this@MainActivity,it.results.size.toString(),Toast.LENGTH_SHORT).show()
+           when(it)
+           {
+               is Response.Loading ->{}
+               is Response.Success ->{
+                   adapter.submitList(it.data?.results)
+               }
+               is Response.Error ->{
+                   Toast.makeText(this@MainActivity,it.errorMessage.toString(),Toast.LENGTH_SHORT).show()
+               }
+           }
+
 
 
 

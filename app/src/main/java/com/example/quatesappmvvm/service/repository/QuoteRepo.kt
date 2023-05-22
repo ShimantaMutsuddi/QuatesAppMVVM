@@ -17,10 +17,10 @@ class QuoteRepo(
 ) {
 
     //to hold quoteList
-    private val quotesLivaData=MutableLiveData<QuoteList>()
+    private val quotesLivaData=MutableLiveData<Response<QuoteList>>()
 
     //accessable livedata
-    val quotes:LiveData<QuoteList>
+    val quotes:LiveData<Response<QuoteList>>
        get()=quotesLivaData
 
      suspend fun getQuotes(page:Int)
@@ -28,18 +28,31 @@ class QuoteRepo(
 
         var isNetwork:Boolean=NetworkUtils.isInternetAvailable(context)
         if(isNetwork) {
-            val result=apiInterface.getQuotes(page)
-            if (result?.body() != null) {
-                quoteDatabase.quoteDao().addQuotes(result.body()!!.results)
-                quotesLivaData.postValue(result.body())
+            try {
+                val result=apiInterface.getQuotes(page)
+                if (result?.body() != null) {
+                    quoteDatabase.quoteDao().addQuotes(result.body()!!.results)
+                    quotesLivaData.postValue(Response.Success(result.body()))
+
+                }
+                else
+                {
+                    quotesLivaData.postValue(Response.Error("API ERROR"))
+                }
 
             }
+           catch (e:Exception)
+           {
+               quotesLivaData.postValue(Response.Error(e.message.toString()))
+
+           }
+
         }
         else{
                 val quotes=quoteDatabase.quoteDao().getQuotes()
                 val quoteList=QuoteList(1,1,1,quotes,1,1)
 
-                quotesLivaData.postValue(quoteList)
+                quotesLivaData.postValue(Response.Success(quoteList))
             }
 
 

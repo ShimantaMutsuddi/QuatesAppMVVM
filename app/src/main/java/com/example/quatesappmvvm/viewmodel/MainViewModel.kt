@@ -7,6 +7,7 @@ import com.example.quatesappmvvm.service.db.QuoteDao
 import com.example.quatesappmvvm.service.db.QuoteDatabase
 import com.example.quatesappmvvm.service.model.QuoteList
 import com.example.quatesappmvvm.service.repository.QuoteRepo
+import com.example.quatesappmvvm.service.repository.Response
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -19,7 +20,7 @@ class MainViewModel(private val quoteRepo: QuoteRepo): ViewModel() {
 
     }
 
-    val quotes: LiveData<QuoteList>
+    val quotes: LiveData<Response<QuoteList>>
         get()=quoteRepo.quotes
 
 }
